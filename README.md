@@ -7,7 +7,9 @@ Requires:
 
 ## Basic use
 
-Ensure that no hardware is connected to the Raspberry Pi. Connect pairs of pins together:
+Ensure that no hardware is connected to the Raspberry Pi. 
+Ensure that all interfaces are disabled in the Raspberry Pi Configuration. While the program tests for them, by the time it is run with the pairs of connections made, then the damage could have been done
+Connect pairs of pins together:
 * TBD
 
 Run PiPinTest.py

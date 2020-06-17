@@ -65,7 +65,14 @@ def pinPairTest(pin1, pin2):
     else:
         skipPullUpDown = False
         pullUp = ""
-    if pinCheck(pin1) and pinCheck(pin2):
+        
+    pinStatus = True # Assume pins are OK to test
+    if not(pinCheck(pin1)):
+        pinStatus = False
+    if not(pinCheck(pin2)):
+        pinStatus = False
+        
+    if pinStatus:
         GPIO.setup(pin1, GPIO.IN) # Need to make sure that there is a defintion if I2C pins
         GPIO.setup(pin2, GPIO.IN)
         if not(skipPullUpDown):
@@ -127,9 +134,12 @@ def pinPairTest(pin1, pin2):
         if not(testPinState(pin1, pin2, 1)):
             pairTest = False
         time.sleep(delay)
+        GPIO.setup(pin1, GPIO.IN)
+        GPIO.setup(pin2, GPIO.IN)
+
     else:
         print("Unable to test pins " + str(pin1) + " & " + str(pin2))
-        pairTest = false
+        pairTest = False
     return pairTest
     
 
@@ -139,7 +149,7 @@ def pinTest():
     print("")
     GPIO.setmode(GPIO.BOARD)
     success = True # Assume no faults
-    if(not(pinPairTest(3, 5))):
+    if(not(pinPairTest(19, 21))):
         success = False
     GPIO.cleanup()
     print("")
