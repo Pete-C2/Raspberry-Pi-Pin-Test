@@ -8,9 +8,22 @@ Requires:
 ## Basic use
 
 Ensure that no hardware is connected to the Raspberry Pi. 
+Ensure that no other programs are running that interact with the IO pins.
 Ensure that all interfaces are disabled in the Raspberry Pi Configuration. While the program tests for them, by the time it is run with the pairs of connections made, then the damage could have been done
 Connect pairs of pins together:
-* TBD
+* 3 & 5
+* 7 & 11
+* 13 & 15
+* 19 & 21
+* 23 & 29
+* 31 & 33
+* 35 & 37
+* 8 & 10
+* 12 & 16
+* 18 & 22
+* 24 & 26
+* 32 & 36
+* 38 & 40
 
 Run PiPinTest.py
 
@@ -21,7 +34,10 @@ All pairs of pins will be tested:
 
 ## Changelog
 
+### V0.2
 
+- Defined all pin pairs
+- Added individual test of pull-up/down resistors within a pair of pins
 
 ### V0.1
 
