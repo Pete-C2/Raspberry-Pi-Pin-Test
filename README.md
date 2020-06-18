@@ -1,5 +1,5 @@
 # Raspberry Pi Pin Test
-Python program to test all the 40 pin I/O header pins. The program checks that the inputs and outputs correctly drive static voltage levels. This is useful if you buy a secondhand Pi or think you might have damaged one or more of the I/O pins.
+Python program to test all the 40 pin I/O header pins. The PiPinTest program automatically checks that the inputs and outputs correctly drive static voltage levels. The PiSinglePinTest drives a single pin to allow more detailed tests to be done if any faults are identified. This is useful if you buy a secondhand Pi or think you might have damaged one or more of the I/O pins.
 
 More complex testing is not included.
 
@@ -8,6 +8,8 @@ Requires:
 - A [Raspberry Pi](http://www.raspberrypi.org/)
 
 ## Basic use
+
+### PiPinTest
 
 Ensure that no hardware is connected to the Raspberry Pi. 
 
@@ -37,7 +39,25 @@ All pairs of pins will be tested:
 * Pull-up on one pin and output drive low on the other pin correctly reads as low on both pins
 * Pull-down on one pin and output drive high on the other pin correctly reads as high on both pins
 
+### PiSinglePinTest
+
+Ensure that no hardware is connected to the Raspberry Pi pin under test. Optionally connect an LED from with 3.3V (via a resistor) to test if the output can drive low or to ground (via a resistor) to test if the output can drive high.
+
+Ensure that no other programs are running that interact with the IO pin under test.
+
+Ensure that all interfaces are disabled for the pin under test in the Raspberry Pi Configuration.
+
+Modify the code to change the value of checkPin to the pin you want to test
+
+Run PiSinglePinTest.py
+
+
+
 ## Changelog
+
+### V2.0
+
+- Added second program to test a single pin
 
 ### V1.0
 
