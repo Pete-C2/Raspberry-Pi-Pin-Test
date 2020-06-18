@@ -1,5 +1,7 @@
 # Raspberry Pi Pin Test
-Python program to test all the 40 pin I/O header pins. This is useful if you buy a secondhand Pi or think you might have damaged one or more of the I/O pins.
+Python program to test all the 40 pin I/O header pins. The program checks that the inputs and outputs correctly drive static voltage levels. This is useful if you buy a secondhand Pi or think you might have damaged one or more of the I/O pins.
+
+More complex testing is not included.
 
 Requires:
 - The [GPIO Library](https://sourceforge.net/projects/raspberry-gpio-python/) (Already on most Raspberry Pi OS builds)
@@ -8,8 +10,11 @@ Requires:
 ## Basic use
 
 Ensure that no hardware is connected to the Raspberry Pi. 
+
 Ensure that no other programs are running that interact with the IO pins.
-Ensure that all interfaces are disabled in the Raspberry Pi Configuration. While the program tests for them, by the time it is run with the pairs of connections made, then the damage could have been done
+
+Ensure that all interfaces are disabled in the Raspberry Pi Configuration. While the program tests for them, by the time it is run with the pairs of connections made, then the damage could have been done.
+
 Connect pairs of pins together:
 * 3 & 5
 * 7 & 11
@@ -29,10 +34,15 @@ Run PiPinTest.py
 
 All pairs of pins will be tested:
 * Pull-up and Pull-down on one of each pair at a time is read correctly on both pins
-* Pull-up on one pin and output drive low on the other pin correctly reads as low
-* Pull-down on one pin and output drive high on the other pin correctly reads as high
+* Pull-up on one pin and output drive low on the other pin correctly reads as low on both pins
+* Pull-down on one pin and output drive high on the other pin correctly reads as high on both pins
 
 ## Changelog
+
+### V1.0
+
+- Corrected error in I²C pin testing
+- Fully tested and works
 
 ### V0.2
 

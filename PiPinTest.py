@@ -142,6 +142,8 @@ def pinPairTest(pin1, pin2):
                   
         if not((pin1 == 3) or (pin1 == 5)):
             GPIO.setup(pin1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        else:
+            GPIO.setup(pin1, GPIO.IN)
         GPIO.setup(pin2, GPIO.OUT)
         GPIO.output(pin2, 0)
 
